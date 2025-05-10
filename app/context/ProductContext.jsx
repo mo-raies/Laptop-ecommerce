@@ -51,13 +51,13 @@ export const ProductProvider = ({ children }) => {
   };
 
   const getCartItems = async () => {
-    const api = await axios.get(`${API_BASE_URL}/cart`);
+    const api = await axios.get(`/api/cart`);
     setCart(api.data.cartItems);
     console.log(api.data);
   };
 
   const clearCart = async () => {
-    const api = await axios.delete(`${API_BASE_URL}/cart`);
+    const api = await axios.delete(`/api/cart`);
     getCartItems();
   };
 
