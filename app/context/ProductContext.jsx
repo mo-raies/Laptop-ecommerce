@@ -32,7 +32,7 @@ export const ProductProvider = ({ children }) => {
 
   const addToCart = async (title, imgSrc, price, toast) => {
     try {
-      const api = await axios.post(`${API_BASE_URL}/cart`, {
+      const api = await axios.post(`/api/cart`, {
         title,
         imgSrc,
         price,
