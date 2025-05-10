@@ -69,7 +69,8 @@ const Product = ({ items }) => {
                     {product.price} ₹
                   </button>
                   <button
-                    onClick={async () => {
+                    onClick={async (e) => {
+                      e.preventDefault();
                       await addToCart(
                         product.title,
                         product.imgSrc,
