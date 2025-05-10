@@ -27,35 +27,39 @@ const page = ({ params }) => {
   if (!productById) return <p className="text-center my-5">Loading.....</p>;
 
   return (
-    <div>
-      <div className="container my-5">
-        <div className="row align-items-center">
-          <div className="col-md-6 d-flex justify-content-center align-content-center p-3">
-            <img
-              src={productById.imgSrc}
-              alt="img is not found"
-              style={{
-                width: "100%",
-                maxWidth: "300px",
-                height: "auto",
-                border: "1px",
-                borderRadius: "10px solid yellow",
-              }}
-            />
-          </div>
-          {/* product details */}
-          <div className="col-md-6 text-center">
-            <h1 className="card-title">{productById.title}</h1>
-            <p className="card-text">{productById.description}</p>
-            <button className="btn btn-primary mx-3">
+    <div className="container my-5">
+      {/* Product Details Section */}
+      <div className="row align-items-center flex-column-reverse flex-md-row">
+        {/* Product Image */}
+        <div className="col-12 col-md-6 d-flex justify-content-center p-3">
+          <img
+            src={productById.imgSrc}
+            alt="img is not found"
+            style={{
+              width: "100%",
+              maxWidth: "300px",
+              height: "auto",
+              border: "1px solid #ccc",
+              borderRadius: "10px",
+            }}
+          />
+        </div>
+
+        {/* Product Info */}
+        <div className="col-12 col-md-6 text-center text-md-start">
+          <h1 className="card-title">{productById.title}</h1>
+          <p className="card-text">{productById.description}</p>
+          <div className="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
+            <button className="btn btn-primary mb-2 mb-sm-0 me-sm-3">
               {productById.price}
             </button>
-            <button className="btn btn-danger mx-3">Buy Now</button>
+            <button className="btn btn-danger">Buy Now</button>
           </div>
         </div>
       </div>
-      {/* related products */}
-      <h1 className="text-center my-5"> Related Products</h1>
+
+      {/* Related Products */}
+      <h1 className="text-center my-5">Related Products</h1>
       <Product items={relatedProduct} />
     </div>
   );

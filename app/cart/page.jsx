@@ -23,7 +23,7 @@ const page = () => {
             <div
               key={product._id}
               className="card my-5 mb-3 bg-dark text-light"
-              style={{ width: "700px" }}
+              style={{ width: "" }}
             >
               <div className="row d-flex align-items-center justify-content-center">
                 <div className="col-md-4 d-flex justify-content-center align-content-center p-3">
