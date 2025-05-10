@@ -4,7 +4,7 @@ import Product from "./components/Product";
 
 import { useProductContext } from "./context/ProductContext";
 
-export const page = () => {
+export default function page() {
   const { data } = useProductContext();
   // console.log("context hook:", useProductContext());
 
@@ -13,5 +13,5 @@ export const page = () => {
       <Product items={data} />
     </div>
   );
-};
-export default page;
+}
+// export default page;
