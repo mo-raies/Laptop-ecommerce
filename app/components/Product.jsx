@@ -42,47 +42,50 @@ const Product = ({ items }) => {
           {items.map((product) => (
             <div
               key={product._id}
-              className="col-lg-4 col-md-6 my-3 text-center d-flex justify-content-center align-items-center"
+              className="col-lg-4 col-md-6 my-3 d-flex justify-content-center"
             >
               <div
-                className="card bg-dark text-light"
-                style={{ width: "18rem" }}
+                className="card bg-dark text-light d-flex flex-column"
+                style={{ width: "18rem", height: "100%", minHeight: "200px" }}
               >
                 <Link href={`/${product._id}`}>
-                  <div className="d-flex justify-content-center align-content-center p-3">
+                  <div className="d-flex justify-content-center p-3">
                     <img
                       src={product.imgSrc}
-                      alt="img is not found"
+                      alt="Image not found"
                       className="card-img-top"
                       style={{
                         width: "200px",
-                        border: "1px",
-                        borderRadius: "10px solid yellow",
+                        borderRadius: "10px",
                       }}
                     />
                   </div>
                 </Link>
-                <div className="card-body">
+
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{product.title}</h5>
-                  <p className="card-text">{product.description}</p>
-                  <button className="btn btn-primary mx-2 ">
-                    {product.price} ₹
-                  </button>
-                  <button
-                    onClick={async (e) => {
-                      e.preventDefault();
-                      await addToCart(
-                        product.title,
-                        product.imgSrc,
-                        product.price,
-                        toast
-                      );
-                      await getCartItems();
-                    }}
-                    className="btn btn-warning"
-                  >
-                    Add To Cart
-                  </button>
+                  <p className="card-text flex-grow-1">{product.description}</p>
+
+                  <div className="mt-auto">
+                    <button className="btn btn-primary mx-2">
+                      {product.price} ₹
+                    </button>
+                    <button
+                      onClick={async (e) => {
+                        e.preventDefault();
+                        await addToCart(
+                          product.title,
+                          product.imgSrc,
+                          product.price,
+                          toast
+                        );
+                        await getCartItems();
+                      }}
+                      className="btn btn-warning mt-2"
+                    >
+                      Add To Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

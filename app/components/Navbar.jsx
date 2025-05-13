@@ -103,6 +103,13 @@ const Navbar = () => {
               </button>
             )}
           </div>
+
+          {/* Create product */}
+          <div className="mx-2 px-2">
+            <Link href="/auth/createPost">
+              <button className="btn btn-light">Create Post</button>
+            </Link>
+          </div>
         </div>
       </nav>
 
